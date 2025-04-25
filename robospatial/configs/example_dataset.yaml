@@ -1,0 +1,49 @@
+data_generation:
+  num_workers: 1
+  progress_file: generation_progress_example.json # Use a different progress file
+  stats_file: generation_stats_example.json # Use a different stats file
+  output_suffix: .annotations.json
+
+  generation_options:
+    spatial_relationship_types:
+      - object_grounding
+      - spatial_context 
+      - spatial_configuration
+      - spatial_compatibility 
+    
+    # Settings for spatial context point generation
+    context_threshold: 0.5            
+    context_grid_resolution: 0.1      
+    context_num_samples: 50           
+    
+    # Settings for spatial compatibility checks
+    compatibility_grid_resolution: 0.1
+    compatibility_min_distance: 0
+    compatibility_buffer_ratio: 0.6
+    compatibility_num_samples: 50   
+
+    # Strictness level for spatial configuration checks
+    spatial_configuration_strictness: lenient
+  
+    # Mode for calculating pairwise relationships
+    pairwise_relationship_mode: unique_categories_only 
+  
+  # Adjust output directory as needed
+  output_dir: ../example_data/example_qa
+
+# Data Loader Settings for Example Dataset JSON Annotations
+data_loading:
+  verbose: True
+  # Define the dataset name(s) you want to load. 
+  # The loader will look for this key in the 'dataset' field within the JSON files.
+  datasets:
+    - example_dataset
+  
+  # Specify the modified ExampleLoader class
+  loader_class: data_loader.example_loader.ExampleLoader
+  
+  # Specify the directory containing the JSON annotation files
+  annotation_dir: ../example_data/annotations/
+
+  # Specify the directory containing the images
+  image_root: ../example_data/images/

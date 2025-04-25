@@ -1,0 +1,53 @@
+data_generation:
+  # Number of parallel worker threads for processing scenes.
+  # Defaults to min(os.cpu_count(), 4) if not specified or overridden by CLI --num_workers.
+  num_workers: 8
+  progress_file: generation_progress.json
+  stats_file: generation_stats.json
+  output_suffix: .annotations.json
+
+  generation_options:
+    spatial_relationship_types:
+      - object_grounding
+      - spatial_context
+      - spatial_configuration
+      - spatial_compatibility
+    
+    # Settings for spatial context point generation
+    context_threshold: 0.5             # Distance threshold from reference object
+    context_grid_resolution: 0.1       # Grid resolution for empty space check during context generation
+    context_num_samples: 50            # Number of points to sample for spatial context
+    
+    # Settings for spatial compatibility checks
+    compatibility_grid_resolution: 0.1 # Grid resolution for can_fit checks
+    compatibility_min_distance: 0.2 # Minimum distance between objects in can_fit checks
+    compatibility_buffer_ratio: 0.5 # Buffer ratio for can_fit checks
+    compatibility_num_samples: 50    # Number of samples for point space in can_fit checks
+
+    # Strictness level for spatial configuration checks ('strict' or 'lenient')
+    spatial_configuration_strictness: 'strict'
+  
+    # Mode for calculating pairwise relationships ('unique_categories_only' or 'all_visible_objects')
+    pairwise_relationship_mode: 'unique_categories_only' # Default to current behavior
+  
+  output_dir: /path/to/output/dir/
+
+# Data Loader Settings
+data_loading:
+  verbose: True
+  datasets:
+    - scannet
+    - matterport3d
+    - 3rscan
+    - arkitscenes
+  loader_class: data_loader.embodiedscan_loader.EmbodiedScanLoader
+  annotation_key: embodiedscan_ann
+  split: # Which splits to use, for EmbodiedScan we use train and val
+    - train
+    - val
+  
+  image_root: /path/to/your/processed/image/data
+  embodiedscan_ann:
+    train: /path/to/embodiedscan_infos_train.pkl
+    val:   /path/to/embodiedscan_infos_val.pkl
+    test:  /path/to/embodiedscan_infos_test.pkl

@@ -1,0 +1,108 @@
+# Example configuration with minimal required fields for using a custom loader
+
+# Top-level structure often separates different concerns like loading and generation
+
+data_loading:
+  # --- Required Fields ---
+
+  # Specifies the Python class for your custom data loader. (Required)
+  # Format: "module_name.ClassName"
+  loader_class: "data_loader.example_loader.ExampleLoader"
+
+  # List of dataset identifiers that this configuration applies to. (Required)
+  # These identifiers must match keys under the data_loading section
+  # where dataset-specific parameters are defined.
+  datasets:
+    - example_dataset
+
+  # --- Dataset Specific Configuration --- 
+  # Parameters required by the specific loader ('ExampleLoader' in this case).
+  # These fields are essential *for this loader*.
+  annotation_dir: "/path/to/your/dataset/annotations/"
+  image_root: "/path/to/your/dataset/images/"
+
+  # Specifies which data split(s) to process (e.g., train, validation, test).
+  # If omitted, the loader might default to a specific split or load all.
+  # split:
+  #   - "train"
+  #   - "val"
+
+  # Enable verbose logging output during data loading. (Optional, defaults may vary)
+  # verbose: True
+
+  # Add any *other* parameters required only by your specific CustomDatasetLoader here.
+
+
+data_generation:
+  # Base directory where all generated QA data will be saved.
+  output_dir: "/path/to/your/output/qa_data"
+
+  # Number of parallel worker threads for processing scenes.
+  # If omitted or null, defaults to os.cpu_count() (or 4 if count is unavailable).
+  # Can be overridden by the --num_workers command-line argument.
+  num_workers: 1 # Example: Set to 1 to disable parallel processing, or e.g., 4 to use 4 threads.
+
+  # Suffix to append to output annotation filenames.
+  output_suffix: ".annotations.json"
+
+  # Path to the file used for saving and resuming generation progress.
+  progress_file: "generation_progress_example.json"
+
+  # Path to the file where generation statistics will be saved.
+  stats_file: "generation_stats_example.json"
+
+  # --- QA Generation Options ---
+  # These options control the types and specifics of the Question-Answering pairs generated.
+  generation_options:
+    # List of spatial relationship/QA types to generate.
+    # Common types might include:
+    # - object_grounding: Questions about the location/existence of specific objects.
+    # - spatial_context: Questions about objects relative to empty space or general areas.
+    # - spatial_configuration: Questions about the arrangement of multiple objects.
+    # - spatial_compatibility: Questions about whether objects *could* fit somewhere.
+    spatial_relationship_types:
+      - "object_grounding"
+      - "spatial_context"
+      - "spatial_configuration"
+      - "spatial_compatibility"
+      # Add any custom QA types your system supports
+
+    # --- Settings for Specific QA Types ---
+
+    # Threshold distance (in meters) from a reference object when generating
+    # points for "spatial_context" questions. Points further than this are ignored.
+    context_threshold: 0.5
+
+    # Grid resolution (in meters) used for checking empty space when sampling
+    # points for "spatial_context" questions.
+    context_grid_resolution: 0.1
+
+    # Number of points to sample around reference objects for "spatial_context" questions.
+    context_num_samples: 50
+
+    # Grid resolution (in meters) used for collision checking (e.g., "can this object fit here?")
+    # in "spatial_compatibility" questions.
+    compatibility_grid_resolution: 0.1
+
+    # Minimum distance (in meters) between objects when checking for "spatial_compatibility" questions.
+    compatibility_min_distance: 0
+
+    # Buffer ratio for "spatial_compatibility" checks.
+    # This is the ratio of how much of the buffer zone can be occupied by other objects.
+    # For example, if the buffer ratio is 0.6, then the buffer zone can be occupied by other objects
+    # up to 60% of the time.
+    compatibility_buffer_ratio: 0.6
+
+    # Number of points to sample on object surfaces or within volumes for
+    # collision/fitting checks in "spatial_compatibility" questions.
+    compatibility_num_samples: 50
+
+    # Strictness level for "spatial_configuration" checks.
+    # 'strict': Requires precise matching of object arrangements.
+    # 'lenient': Allows for some tolerance in positions/orientations.
+    spatial_configuration_strictness: 'lenient'
+
+    # Mode for calculating pairwise relationships between objects (used in several QA types).
+    # 'unique_categories_only': Considers relationships only between objects of different categories.
+    # 'all_visible_objects': Considers relationships between all pairs of visible objects.
+    pairwise_relationship_mode: 'unique_categories_only' 
