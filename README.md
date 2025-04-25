@@ -190,6 +190,7 @@ We thank the authors of [EmbodiedScan](https://github.com/OpenRobotLab/EmbodiedS
 
 ## Contact
 - Luke Song: song.1855@osu.edu
+- For NVIDIA internal: Valts Blukis (vblukis@nvidia.com), Jonathan Tremblay (jtremblay@nvidia.com) 
 - Or Github Issues!
 
 ## Citation
