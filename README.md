@@ -43,7 +43,7 @@ The generated annotations are saved in JSON format, one file per image.
 
 ## Prerequisites
 
-1.  **Python Environment:** Ensure you have a Python environment set up (e.g., using `conda` or `venv`). Required packages can be installed via `pip install -r requirements.txt`.
+1.  **Python Environment:** Ensure you have a Python (3.8+) environment set up (e.g., using `conda` or `venv`). Required packages can be installed via `pip install -r requirements.txt`.
 2.  **Datasets:** You need access to the 3D scan datasets you intend to process.
    * **Note:** For specific instructions on downloading and setting up the **EmbodiedScan** dataset, please refer to the guide in [**`data/README.md`**](data/README.md).
 3.  **Configuration:** The main configuration file (e.g., `robospatial/configs/embodiedscan.yaml`) needs to be updated with paths relevant to your chosen data loader and dataset:
@@ -190,7 +190,7 @@ We thank the authors of [EmbodiedScan](https://github.com/OpenRobotLab/EmbodiedS
 
 ## Contact
 - Luke Song: song.1855@osu.edu
-- For NVIDIA internal: Valts Blukis (vblukis@nvidia.com), Jonathan Tremblay (jtremblay@nvidia.com) 
+- NVIDIA internal: Valts Blukis (vblukis@nvidia.com), Jonathan Tremblay (jtremblay@nvidia.com) 
 - Or Github Issues!
 
 ## Citation
