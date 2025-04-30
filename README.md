@@ -176,7 +176,6 @@ For a detailed explanation of the annotation generation logic and hyperparameter
     *   `spatial_analysis/`: Modules performing the core spatial reasoning and annotation generation logic.
     *   `annotation_generator.py`: Orchestrates the generation process for a single scene by calling functions from `spatial_analysis`.
     *   `run_generation.py`: Main script to run the annotation generation across datasets/scenes based on configuration.
-    *   `visualize_annotations.py`: (Presumed) Script for visualizing generated annotations.
 
 ## Output Files
 
