@@ -12,6 +12,7 @@ Authors: [Chan Hee Song](https://chanh.ee)<sup>1</sup>, [Valts Blukis](https://r
 
 ## 🔔News
 
+- **🔥[2025-06-15]: RoboSpatial is part of NVIDIA [GR00T N1.5](https://research.nvidia.com/labs/gear/gr00t-n1_5/)!**
 - **🔥[2025-04-24]: Released the RoboSpatial data generation pipeline, RoboSpatial-Home dataset, and evaluation script!**
 
 ---
