@@ -7,15 +7,16 @@ To use the EmbodiedScan dataset with this project, you first need to download an
 Follow the steps outlined in the official EmbodiedScan data preparation guide:
 [https://github.com/OpenRobotLab/EmbodiedScan/tree/main/data](https://github.com/OpenRobotLab/EmbodiedScan/tree/main/data)
 
-Specifically, you need to complete steps 1 through 5 and step 7:
-1.  Download ScanNet v2 data.
-2.  Download 3RScan data.
-3.  Download Matterport3D data.
-4.  Download ARKitScenes data.
-5.  Download EmbodiedScan annotations (`.pkl` files).
-7.  Extract images for ScanNet and 3RScan using the provided scripts (`generate_image_scannet.py` and `generate_image_3rscan.py`).
+An example of the steps is as follows:
+1. Download ScanNet v2 data.  
+2. Download 3RScan data.  
+3. Download Matterport3D data.  
+4. Download ARKitScenes data.  
+5. Download EmbodiedScan annotations (`.pkl` files).  
+6. Extract images for ScanNet and 3RScan using the provided scripts (`generate_image_scannet.py` and `generate_image_3rscan.py`).  
 
-**Note:** You do **not** need to perform step 6 (extracting occupancy annotations) for this project.
+**Note:** You do **not** need to perform the final step in the EmbodiedScan README (extracting occupancy annotations) for this project.
+
 
 Ensure your final data directory structure matches the one specified in the EmbodiedScan README.
 
