@@ -12,6 +12,7 @@ Authors: [Chan Hee Song](https://chanh.ee)<sup>1</sup>, [Valts Blukis](https://r
 
 ## 🔔News
 
+- **🔥[2025-09-30]: RoboSpatial-Home is a core spatial understanding benchmark used by [Qwen3-VL](https://qwen.ai/blog?id=99f0335c4ad9ff6153e517418d48535ab6d8afef&from=research.latest-advancements-list) and [Gemini Robotics](https://storage.googleapis.com/deepmind-media/gemini-robotics/Gemini-Robotics-1-5-Tech-Report.pdf)!**
 - **🔥[2025-06-15]: RoboSpatial is part of NVIDIA [GR00T N1.5](https://research.nvidia.com/labs/gear/gr00t-n1_5/)!**
 - **🔥[2025-04-24]: Released the RoboSpatial data generation pipeline, RoboSpatial-Home dataset, and evaluation script!**
 
