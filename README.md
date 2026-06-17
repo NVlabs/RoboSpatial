@@ -190,8 +190,8 @@ For a detailed explanation of the annotation generation logic and hyperparameter
 We thank the authors of [EmbodiedScan](https://github.com/OpenRobotLab/EmbodiedScan/tree/main) for providing their unified annotations for various 3D scan datasets, which served as the foundation for this project's data loading capabilities.
 
 ## Contact
-- Luke Song: song.1855@osu.edu
-- NVIDIA internal: Valts Blukis (vblukis@nvidia.com), Jonathan Tremblay (jtremblay@nvidia.com) 
+- External: Luke Song (lusong@nvidia.com)
+- NVIDIA internal: Luke Song (lusong@nvidia.com), Valts Blukis (vblukis@nvidia.com), Jonathan Tremblay (jtremblay@nvidia.com) 
 - Or Github Issues!
 
 ## Citation
@@ -200,7 +200,7 @@ We thank the authors of [EmbodiedScan](https://github.com/OpenRobotLab/EmbodiedS
 ```bibtex
 @inproceedings{song2025robospatial,
   author    = {Song, Chan Hee and Blukis, Valts and Tremblay, Jonathan and Tyree, Stephen and Su, Yu and Birchfield, Stan},
-  title     = {{RoboSpatial}: Teaching Spatial Understanding to {2D} and {3D} Vision-Language Models for Robotics},
+  title     = {{RoboSpatial: Teaching Spatial Understanding to {2D} and {3D} Vision-Language Models for Robotics}},
   booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year      = {2025},
   note      = {Oral Presentation},
